@@ -1,0 +1,31 @@
+<app-header>
+    <li><a class="logout" (click)="onLogout()">Logout</a></li>
+</app-header>
+<div class="container spark-screen">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Chat Message Module</div>
+                <div class="panel-body">
+ 
+                <div class="row">
+                    <div class="col-lg-8" >
+                      <div id="messages">
+                        <div *ngFor="let eachitem of item"><strong>{{eachitem.user}}:</strong><p>{{eachitem.message}}</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8" >
+                            <form action="sendmessage" method="POST" (ngSubmit)="onSendMsg()" novalidate="">
+                               <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+                                <input type="hidden" name="user" value="{{ Auth::user()->name }}" >  -->
+                                <textarea class="form-control msg" [(ngModel)]="sendData.message" name="message"></textarea>
+                                <br/>
+                                <input type="submit" value="Send" class="btn btn-success send-msg" >
+                            </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
